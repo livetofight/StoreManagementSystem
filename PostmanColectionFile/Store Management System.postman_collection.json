@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "a69ee935-7459-473d-879a-8ca6e9c567d3",
+		"name": "Store Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14665336"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Nguyễn Quốc Đạt",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "nguyenquocdat.cntt@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "Admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/auth/register",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1MDQyOTcsImV4cCI6MTY5MTUwNzg5NywibmJmIjoxNjkxNTA0Mjk3LCJqdGkiOiJNZkczSE1ZVk1tSmZuRW5GIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.8wj18TfOOp7rkl2jLryaNo7sBkuU4HMmgDEN9iHdps0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "store name 1",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "số 123 đường abc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/create",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list/search store by current user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1ODQ4NTEsImV4cCI6MTY5MTYwNjQ1MSwibmJmIjoxNjkxNTg0ODUxLCJqdGkiOiJ1c3I3T1pRTkVwWU1WRkxhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.N6xKpB4G3OtPr7QkK325zzxATpR2rqV525wGoNryxTs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store?page-size=3&term=",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store"
+					],
+					"query": [
+						{
+							"key": "page-size",
+							"value": "3"
+						},
+						{
+							"key": "term",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail store",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1ODQ4NTEsImV4cCI6MTY5MTYwNjQ1MSwibmJmIjoxNjkxNTg0ODUxLCJqdGkiOiJ1c3I3T1pRTkVwWU1WRkxhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.N6xKpB4G3OtPr7QkK325zzxATpR2rqV525wGoNryxTs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/2",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1ODQ4NTEsImV4cCI6MTY5MTYwNjQ1MSwibmJmIjoxNjkxNTg0ODUxLCJqdGkiOiJ1c3I3T1pRTkVwWU1WRkxhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.N6xKpB4G3OtPr7QkK325zzxATpR2rqV525wGoNryxTs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"store 2 updated\",\r\n    \"address\":\"aaaaaaaaaaaaaaaaaaaaaaaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/2",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1ODQ4NTEsImV4cCI6MTY5MTYwNjQ1MSwibmJmIjoxNjkxNTg0ODUxLCJqdGkiOiJ1c3I3T1pRTkVwWU1WRkxhIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.N6xKpB4G3OtPr7QkK325zzxATpR2rqV525wGoNryxTs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/2",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1ODk0OTYsImV4cCI6MTY5MTYxMTA5NiwibmJmIjoxNjkxNTg5NDk2LCJqdGkiOiJUaXNibkltem5MS3REbjdjIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.95TdNnl8TKzwwamFaVmUUhOV3kH2TVPgHMHSDeBdKOA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Product name 11231",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Description 1121312",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/1/product/create",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"1",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list/search product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE2NzM3MDgsImV4cCI6MTY5MTY5NTMwOCwibmJmIjoxNjkxNjczNzA4LCJqdGkiOiJPOVRCQUVDbUN1MFBrVk9rIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OOfJ68Ud5SEM38_le0uKyZioxnP_AxzIBZ0CWRzm98A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/2/product/?page-size=2&term=",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"2",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "page-size",
+							"value": "2"
+						},
+						{
+							"key": "term",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE2NzM3MDgsImV4cCI6MTY5MTY5NTMwOCwibmJmIjoxNjkxNjczNzA4LCJqdGkiOiJPOVRCQUVDbUN1MFBrVk9rIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OOfJ68Ud5SEM38_le0uKyZioxnP_AxzIBZ0CWRzm98A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/1/product/3",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"1",
+						"product",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE2NzM3MDgsImV4cCI6MTY5MTY5NTMwOCwibmJmIjoxNjkxNjczNzA4LCJqdGkiOiJPOVRCQUVDbUN1MFBrVk9rIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OOfJ68Ud5SEM38_le0uKyZioxnP_AxzIBZ0CWRzm98A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"updated product name\",\r\n    \"description\":\"aaaaaaaaaaaaaaaaaaaaaaaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/1/product/3",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"1",
+						"product",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE2NzM3MDgsImV4cCI6MTY5MTY5NTMwOCwibmJmIjoxNjkxNjczNzA4LCJqdGkiOiJPOVRCQUVDbUN1MFBrVk9rIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OOfJ68Ud5SEM38_le0uKyZioxnP_AxzIBZ0CWRzm98A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/store/1/product/4",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"1",
+						"product",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "agustin.gorczany@example.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/auth/login",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTE1MDI1NDIsImV4cCI6MTY5MTUwNjE0MiwibmJmIjoxNjkxNTAyNTQyLCJqdGkiOiJFak5kZHVneVdFb3ZUZ0puIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.wA42Hnmn16chvDRxNMciLQ_US7QUG0r1uM055c9I-O8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{store_management_url}}/api/auth/logout",
+					"host": [
+						"{{store_management_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
